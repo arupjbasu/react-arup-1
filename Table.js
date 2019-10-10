@@ -34,13 +34,30 @@ const TableBody = () => {
   )
 }
 
+const TableBody2 = props => {
+  const rows = props.characterData.map((row, index) => {
+    return (
+      <tr key={index}>
+        <td>{row.name}</td>
+        <td>{row.job}</td>
+      </tr>
+    )
+  })
+
+  return <tbody>{rows}</tbody>
+}
 
 class Table extends Component {
   render() {
+
+    const { characterData } = this.props
     return (
       <table class="table table-bordered">
         <TableHeader />
         <TableBody />
+
+        <TableHeader />
+        <TableBody2 characterData={characterData}/>
       </table>
     )
   }
