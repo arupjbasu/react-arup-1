@@ -47,10 +47,27 @@ const TableBody2 = props => {
   return <tbody>{rows}</tbody>
 }
 
+const TableBody3 = props => {
+  const rows = props.characterData.map((row, index) => {
+    return (
+      <tr key={index}>
+        <td>{row.name}</td>
+        <td>{row.job}</td>
+        <td>
+    <button onClick={() => props.removeCharacter(index)}>Delete</button>
+  </td>
+      </tr>
+    )
+  })
+
+  return <tbody>{rows}</tbody>
+}
+
 class Table extends Component {
   render() {
 
     const { characterData } = this.props
+    const {  removeCharacter } = this.props
     return (
       <table class="table table-bordered">
         <TableHeader />
@@ -58,6 +75,9 @@ class Table extends Component {
 
         <TableHeader />
         <TableBody2 characterData={characterData}/>
+
+        <TableHeader />
+        <TableBody3 characterData={characterData} removeCharacter={removeCharacter} />
       </table>
     )
   }
