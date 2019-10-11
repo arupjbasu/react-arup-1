@@ -66,8 +66,8 @@ const TableBody3 = props => {
 class Table extends Component {
   render() {
 
-    const { characterData } = this.props
-    const {  removeCharacter } = this.props
+    const { characterData,removeCharacter } = this.props
+    
     return (
       <table class="table table-bordered">
         <TableHeader />
