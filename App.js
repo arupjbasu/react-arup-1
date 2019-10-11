@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Table from './Table'
 import Form from './Form';
+import Apix from './Api';
 class App extends Component {
   state = {
         characters: [
