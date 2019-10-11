@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Table from './Table'
-
+import Form from './Form';
 class App extends Component {
   state = {
         characters: [
-          {
+         /* {
         name: 'Charlie2',
         job: 'Janitor2',
       },
@@ -19,7 +19,7 @@ class App extends Component {
       {
         name: 'Dennis2',
         job: 'Bartender2',
-      },
+      },*/
         ]
     };
   removeCharacter = index => {
@@ -31,13 +31,27 @@ class App extends Component {
     }),
   })
 }
+handleSubmit = character => {
+        this.setState({characters: [...this.state.characters, character]});
+    }
   render() {
     const { characters } = this.state;
    
     return (
-      <div className="container">
+      /*<div className="container">
         <Table characterData={characters} removeCharacter={this.removeCharacter}/>
-      </div>
+        <Form />
+      </div> */
+       <div className="container">
+                <h1>React Tutorial</h1>
+                <p>Add a character with a name and a job to the table.</p>
+                <Table
+                    characterData={characters}
+                    removeCharacter={this.removeCharacter}
+                />
+                <h3>Add New</h3>
+                <Form handleSubmit={this.handleSubmit} />
+            </div>
     )
   }
 }
